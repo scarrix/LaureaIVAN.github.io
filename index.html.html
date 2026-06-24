@@ -1,0 +1,449 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { background: transparent; }
+
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+    font-family: var(--font-sans);
+  }
+
+  .card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-header {
+    background: #1D3557;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .confetti-wrap {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; overflow: hidden;
+  }
+
+  .dot {
+    position: absolute;
+    border-radius: 2px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0%   { transform: translateY(-20px) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(160px) rotate(360deg); opacity: 0; }
+  }
+
+  .header-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', var(--font-serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: #F8F1E4;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: #A8BDD0;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .saluto {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin: 1.25rem 0;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+  }
+
+  .info-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .info-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .info-value.pending {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  .info-icon {
+    font-size: 18px;
+    color: #1D6AA5;
+    margin-bottom: 6px;
+  }
+
+  .festa-block {
+    background: #0F3D2E;
+    border-radius: var(--border-radius-md);
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0 0;
+    border: 0.5px solid #1D9E75;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .festa-left {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    background: #1D9E75;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .festa-left i {
+    font-size: 20px;
+    color: #E1F5EE;
+  }
+
+  .festa-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5DCAA5;
+    margin-bottom: 4px;
+  }
+
+  .festa-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #E1F5EE;
+    margin-bottom: 2px;
+  }
+
+  .festa-detail {
+    font-size: 13px;
+    color: #9FE1CB;
+    line-height: 1.5;
+  }
+
+  .note-block {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+    border-left: 3px solid #E2C86A;
+    background: var(--color-background-secondary);
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  }
+
+  .note-text {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .rsvp-section {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .rsvp-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .rsvp-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-rsvp {
+    padding: 10px 22px;
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 0.5px solid var(--color-border-secondary);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    transition: all 0.18s;
+    font-family: var(--font-sans);
+  }
+
+  .btn-rsvp:hover { background: var(--color-background-secondary); }
+
+  .btn-rsvp.yes {
+    background: #1D6AA5;
+    color: #E6F1FB;
+    border-color: #1D6AA5;
+  }
+  .btn-rsvp.yes:hover { background: #185FA5; }
+
+  .btn-rsvp.party {
+    background: #0F3D2E;
+    color: #9FE1CB;
+    border-color: #1D9E75;
+  }
+  .btn-rsvp.party:hover { background: #0F6E56; color: #E1F5EE; }
+
+  .response-msg {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-footer {
+    border-top: 0.5px solid var(--color-border-tertiary);
+    padding: 0.9rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+  }
+
+  .share-btn {
+    background: none;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s;
+  }
+  .share-btn:hover { background: var(--color-background-secondary); }
+
+  .copied-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1D3557;
+    color: #E6F1FB;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 100px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 99;
+    white-space: nowrap;
+  }
+  .copied-toast.show { opacity: 1; }
+
+  @media (max-width: 420px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .card-body { padding: 1.25rem 1.25rem; }
+    .card-header { padding: 2rem 1.25rem 1.5rem; }
+  }
+</style>
+
+<h2 class="sr-only">Invito alla laurea magistrale di IVAN — 9 luglio 2025</h2>
+
+<div class="container">
+  <div class="card">
+
+    <div class="card-header">
+      <div class="confetti-wrap" id="confetti"></div>
+      <span class="header-icon" aria-hidden="true">🎓</span>
+      <div class="header-title">Ivan si laurea!</div>
+      <div class="header-sub">Laurea magistrale · Ingegneria informatica · Unibas</div>
+    </div>
+
+    <div class="card-body">
+
+      <p class="saluto">Famiglia, voglio annunciarvi ufficialmente la mia imminente sessione di laurea magistrale. Mi farebbe molto piacere avervi con me, ma capisco che il giovedì è un giorno lavorativo — in ogni caso, la sera ci vediamo tutti!</p>
+
+      <hr class="divider">
+
+      <div class="info-grid">
+        <div class="info-card">
+          <i class="ti ti-calendar-event info-icon" aria-hidden="true"></i>
+          <div class="info-label">Data discussione</div>
+          <div class="info-value">Giovedì 9 luglio</div>
+        </div>
+        <div class="info-card">
+          <i class="ti ti-school info-icon" aria-hidden="true"></i>
+          <div class="info-label">Corso di laurea</div>
+          <div class="info-value">Ingegneria informatica</div>
+        </div>
+        <div class="info-card">
+          <i class="ti ti-clock info-icon" aria-hidden="true"></i>
+          <div class="info-label">Orario</div>
+          <div class="info-value pending">Da confermare 😂</div>
+        </div>
+        <div class="info-card">
+          <i class="ti ti-map-pin info-icon" aria-hidden="true"></i>
+          <div class="info-label">Polo universitario</div>
+          <div class="info-value pending">Da confermare</div>
+        </div>
+      </div>
+
+      <div class="note-block">
+        <p class="note-text">Non ho ancora l'orario né il polo esatto — lo saprò a breve e vi aggiornerò quanto prima. Nel frattempo… so che mi laureo, e questo conta! 🎉</p>
+      </div>
+
+      <div class="festa-block">
+        <div class="festa-left"><i class="ti ti-confetti" aria-hidden="true"></i></div>
+        <div>
+          <div class="festa-label">Serata di festeggiamenti</div>
+          <div class="festa-title">Urbana (ex Opificio)</div>
+          <div class="festa-detail">Giovedì 9 luglio · ore 20:30<br>Vi aspetto tutti per festeggiare assieme!</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="rsvp-section">
+        <p class="rsvp-label">Farti sapere se vengo:</p>
+        <div class="rsvp-buttons">
+          <button class="btn-rsvp yes" onclick="respond('discussione')">
+            <i class="ti ti-mortarboard" aria-hidden="true"></i> Vengo alla discussione
+          </button>
+          <button class="btn-rsvp party" onclick="respond('festa')">
+            <i class="ti ti-glass-champagne" aria-hidden="true"></i> Ci sono alla festa
+          </button>
+          <button class="btn-rsvp" onclick="respond('entrambi')">
+            <i class="ti ti-heart" aria-hidden="true"></i> Vengo a entrambi!
+          </button>
+        </div>
+        <div class="response-msg" id="resp-msg"></div>
+      </div>
+
+    </div>
+
+    <div class="card-footer">
+      <span class="footer-text">Aggiornamenti in arrivo!</span>
+      <button class="share-btn" onclick="copyInvite()">
+        <i class="ti ti-copy" aria-hidden="true"></i> Copia invito
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<div class="copied-toast" id="toast">Testo copiato!</div>
+
+<script>
+  const responses = {
+    discussione: { msg: "Perfetto! Ti aspetto all'università 🎓 Ti mando i dettagli appena li so.", bg: '#1D6AA5', color: '#E6F1FB' },
+    festa: { msg: "Fantastico! Ci vediamo alle 20:30 da Urbana — sarà una bella serata 🥂", bg: '#0F3D2E', color: '#9FE1CB' },
+    entrambi: { msg: "Sei il/la migliore! Ci vediamo prima all'università e poi a festeggiare 🎉❤️", bg: '#3C3489', color: '#EEEDFE' }
+  };
+
+  function respond(type) {
+    const r = responses[type];
+    const el = document.getElementById('resp-msg');
+    el.textContent = r.msg;
+    el.style.background = r.bg;
+    el.style.color = r.color;
+    el.style.display = 'block';
+    el.style.borderRadius = '8px';
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'fadeIn 0.3s ease';
+  }
+
+  function copyInvite() {
+    const text = `🎓 Sei si laurea!\n\nCaro/a amico/a di famiglia,\nsei invitato/a a celebrare la mia laurea magistrale in Ingegneria Informatica!\n\n📅 Giovedì 9 luglio\n🏛 Discussione di tesi @ Unibas (polo e orario da confermare)\n🥂 Festa serale: Urbana (ex Opificio) — ore 20:30\n\nAggiornamenti in arrivo quanto prima! 😄`;
+    navigator.clipboard.writeText(text).then(() => {
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2200);
+    });
+  }
+
+  function spawnConfetti() {
+    const wrap = document.getElementById('confetti');
+    const colors = ['#FAC775','#5DCAA5','#AFA9EC','#F09595','#85B7EB','#F8F1E4'];
+    for (let i = 0; i < 28; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot';
+      const size = 5 + Math.random() * 7;
+      d.style.cssText = `
+        width:${size}px; height:${size * (Math.random() > 0.5 ? 1 : 2.5)}px;
+        left:${Math.random() * 100}%;
+        top:${-10 + Math.random() * 30}px;
+        background:${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration:${2.5 + Math.random() * 3}s;
+        animation-delay:${Math.random() * 3}s;
+        border-radius:${Math.random() > 0.5 ? '50%' : '2px'};
+        opacity:${0.5 + Math.random() * 0.5};
+      `;
+      wrap.appendChild(d);
+    }
+  }
+
+  spawnConfetti();
+</script>

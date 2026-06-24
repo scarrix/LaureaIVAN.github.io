@@ -1,10 +1,9 @@
-
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body { background: transparent; }
+  body { background: #E0F2FE; /* Background blu chiaro */ }
 
   .container {
     max-width: 640px;
@@ -14,9 +13,9 @@
   }
 
   .card {
-    background: var(--color-background-primary);
-    border: 0.5px solid var(--color-border-tertiary);
-    border-radius: var(--border-radius-lg);
+    background: var(--color-background-primary, #ffffff);
+    border: 0.5px solid var(--color-border-tertiary, #e2e8f0);
+    border-radius: var(--border-radius-lg, 16px);
     overflow: hidden;
     position: relative;
   }
@@ -53,7 +52,7 @@
   }
 
   .header-title {
-    font-family: 'Playfair Display', var(--font-serif);
+    font-family: 'Playfair Display', var(--font-serif, serif);
     font-size: 26px;
     font-weight: 700;
     color: #F8F1E4;
@@ -75,7 +74,7 @@
 
   .saluto {
     font-size: 15px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-secondary, #475569);
     margin-bottom: 1.25rem;
     line-height: 1.6;
     font-style: italic;
@@ -83,7 +82,7 @@
 
   .divider {
     border: none;
-    border-top: 0.5px solid var(--color-border-tertiary);
+    border-top: 0.5px solid var(--color-border-tertiary, #e2e8f0);
     margin: 1.25rem 0;
   }
 
@@ -95,8 +94,8 @@
   }
 
   .info-card {
-    background: var(--color-background-secondary);
-    border-radius: var(--border-radius-md);
+    background: var(--color-background-secondary, #f8fafc);
+    border-radius: var(--border-radius-md, 8px);
     padding: 1rem 1.1rem;
     display: flex;
     flex-direction: column;
@@ -105,7 +104,7 @@
 
   .info-label {
     font-size: 11px;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-tertiary, #64748b);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -113,11 +112,11 @@
   .info-value {
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--color-text-primary, #0f172a);
   }
 
   .info-value.pending {
-    color: var(--color-text-secondary);
+    color: var(--color-text-secondary, #475569);
     font-style: italic;
     font-weight: 400;
     font-size: 13px;
@@ -131,7 +130,7 @@
 
   .festa-block {
     background: #0F3D2E;
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-md, 8px);
     padding: 1.25rem 1.5rem;
     margin: 1.25rem 0 0;
     border: 0.5px solid #1D9E75;
@@ -181,13 +180,13 @@
     margin-top: 1.25rem;
     padding: 0.9rem 1rem;
     border-left: 3px solid #E2C86A;
-    background: var(--color-background-secondary);
-    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    background: var(--color-background-secondary, #f8fafc);
+    border-radius: 0 var(--border-radius-md, 8px) var(--border-radius-md, 8px) 0;
   }
 
   .note-text {
     font-size: 13px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-secondary, #475569);
     line-height: 1.6;
   }
 
@@ -198,7 +197,7 @@
 
   .rsvp-label {
     font-size: 13px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-secondary, #475569);
     margin-bottom: 0.75rem;
   }
 
@@ -211,18 +210,18 @@
 
   .btn-rsvp {
     padding: 10px 22px;
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-md, 8px);
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    border: 0.5px solid var(--color-border-secondary);
-    background: var(--color-background-primary);
-    color: var(--color-text-primary);
+    border: 0.5px solid var(--color-border-secondary, #cbd5e1);
+    background: var(--color-background-primary, #ffffff);
+    color: var(--color-text-primary, #0f172a);
     transition: all 0.18s;
     font-family: var(--font-sans);
   }
 
-  .btn-rsvp:hover { background: var(--color-background-secondary); }
+  .btn-rsvp:hover { background: var(--color-background-secondary, #f8fafc); }
 
   .btn-rsvp.yes {
     background: #1D6AA5;
@@ -242,7 +241,7 @@
     display: none;
     margin-top: 1rem;
     padding: 0.85rem 1rem;
-    border-radius: var(--border-radius-md);
+    border-radius: var(--border-radius-md, 8px);
     font-size: 14px;
     text-align: center;
     animation: fadeIn 0.3s ease;
@@ -254,7 +253,7 @@
   }
 
   .card-footer {
-    border-top: 0.5px solid var(--color-border-tertiary);
+    border-top: 0.5px solid var(--color-border-tertiary, #e2e8f0);
     padding: 0.9rem 2rem;
     display: flex;
     align-items: center;
@@ -265,16 +264,16 @@
 
   .footer-text {
     font-size: 12px;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-tertiary, #64748b);
   }
 
   .share-btn {
     background: none;
-    border: 0.5px solid var(--color-border-secondary);
-    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-secondary, #cbd5e1);
+    border-radius: var(--border-radius-md, 8px);
     padding: 6px 14px;
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--color-text-secondary, #475569);
     cursor: pointer;
     font-family: var(--font-sans);
     display: flex;
@@ -282,7 +281,7 @@
     gap: 6px;
     transition: background 0.15s;
   }
-  .share-btn:hover { background: var(--color-background-secondary); }
+  .share-btn:hover { background: var(--color-background-secondary, #f8fafc); }
 
   .copied-toast {
     position: fixed;
@@ -309,15 +308,13 @@
   }
 </style>
 
-<h2 class="sr-only">Invito alla laurea magistrale di IVAN — 9 luglio 2025</h2>
-
 <div class="container">
   <div class="card">
 
     <div class="card-header">
       <div class="confetti-wrap" id="confetti"></div>
       <span class="header-icon" aria-hidden="true">🎓</span>
-      <div class="header-title">Ivan si laurea!</div>
+      <div class="header-title">Michele si laurea!</div>
       <div class="header-sub">Laurea magistrale · Ingegneria informatica · Unibas</div>
     </div>
 
@@ -416,7 +413,7 @@
   }
 
   function copyInvite() {
-    const text = `🎓 Sei si laurea!\n\nCaro/a amico/a di famiglia,\nsei invitato/a a celebrare la mia laurea magistrale in Ingegneria Informatica!\n\n📅 Giovedì 9 luglio\n🏛 Discussione di tesi @ Unibas (polo e orario da confermare)\n🥂 Festa serale: Urbana (ex Opificio) — ore 20:30\n\nAggiornamenti in arrivo quanto prima! 😄`;
+    const text = `🎓 Michele si laurea!\n\nCaro/a,\nsei invitato/a a celebrare la mia laurea magistrale in Ingegneria Informatica!\n\n📅 Giovedì 9 luglio\n🏛 Discussione di tesi @ Unibas (polo e orario da confermare)\n🥂 Festa serale: Urbana (ex Opificio) — ore 20:30\n\nAggiornamenti in arrivo quanto prima! 😄`;
     navigator.clipboard.writeText(text).then(() => {
       const t = document.getElementById('toast');
       t.classList.add('show');
